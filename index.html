@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Anghel Carrero</title>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="gifContainer">
+            <img id="gifContainerImg" src="https://media.tenor.com/iFLC6SMTJqsAAAAj/bear-panda.gif" alt="Ositos Iniciales" ">
+        </div>
+        <div id="happyGifContainer" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
+        </div>
+        <div id="happyGifContainer2" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha6final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
+        </div>
+        <div id="happyGifContainer3" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha7final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
+        </div>
+        <div id="happyGifContainer4" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha9final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
+        </div>
+        <div id="sadGifContainer" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha2.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
+        </div>
+        <div id="sadGifContainer1" style="display: none;">
+            <img src="https://encoded.pe/sanvalentin/mocha3.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
+        </div>
+        <div id="sadGifContainer2" style="display: none;">
+            <img src="https://raw.githubusercontent.com/mabelolivera10/quieressermisanvalentin/main/mocha4.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
+        </div>
+        <div id="sadGifContainer3" style="display: none;">
+            <img src="https://tenor.com/view/milk-and-mocha-annoy-gif-14528077" alt="Osito Triste" style="width: 80%; height: 80%;">
+        </div>
+      
+        
+        <h1 id="question">Sandyyy 💖 ¿Puedo verte hoy? Te extraño!!!</h1>
+        <div id="messageContainer" style="display: none;"></div>
+        <div id="messageContainer2" style="display: none;"></div>
+
+        <button id="siBtn">¡Sí! También quiero verte 💕 </button>
+        <button id="noBtn">No</button>
+
+        <div  id="reproductor">
+            <audio id="audioPlayer" controls>
+              <source src="musica2.mp3" type="audio/mp3">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+          </div>
+        <script src="js.js"></script>
+    </div>
+
+    <script src="js.js"></script>
+    <script>
+        const playButton = document.getElementById('noBtn');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const siBtn = document.getElementById('siBtn');
+        const mensaje = document.getElementById('mensaje');
+        
+        // Verificar si hay un estado de reproducción guardado en la sesión del navegador
+        const audioPlaybackState = sessionStorage.getItem('audioPlaybackState');
+        if (audioPlaybackState === 'playing') {
+            audioPlayer.play();
+        }
+        
+        playButton.addEventListener('click', () => {
+            audioPlayer.play();
+            // Guardar el estado de reproducción en la sesión del navegador
+            sessionStorage.setItem('audioPlaybackState', 'playing');
+        });
+        audioPlayer.addEventListener('ended', () => {
+            // Reinicia la reproducción
+            audioPlayer.currentTime = 0; // Reinicia la reproducción al principio
+            audioPlayer.play(); // Vuelve a reproducir la música automáticamente
+        });
+      
+        siBtn.addEventListener('click', () => {
+            window.resizeTo(100, 100);  
+            audioPlayer.play();
+            // Redireccionar a otra página
+            setTimeout(() => {
+           
+                document.getElementById('messageContainer2').style.display = 'block';
+                document.getElementById('messageContainer2').innerHTML = '¡Paso a verte en la noche sip :D';
+            }, 4000);
+            setTimeout(() => {
+             //window.location.href = 'carta.html';
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
+
